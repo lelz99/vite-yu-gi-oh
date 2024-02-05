@@ -8,9 +8,14 @@ export default {
   name: 'MyApp',
   components: { AppMain },
   created() {
+    store.isLoading = true;
     axios.get(endpoint).then(res => {
       store.pokemons = res.data.docs
-    });
+    }).catch(err => {
+      console.error(err)
+    }).then(() => {
+      store.isLoading = false
+    })
   }
 }
 </script>
@@ -19,6 +24,6 @@ export default {
   <AppMain />
 </template>
 
-<style lang="scss" >
+<style lang="scss">
 @use './assets/scss/style.scss';
 </style>
