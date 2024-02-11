@@ -1,14 +1,12 @@
 <script>
 import CardPokemon from './CardPokemon.vue';
-import AppHeader from './AppHeader.vue';
 export default {
     name: 'AppMain',
-    components: { AppHeader, CardPokemon }
+    components: { CardPokemon }
 }
 </script>
 
 <template>
-    <AppHeader />
     <main class="container">
         <CardPokemon />
     </main>
